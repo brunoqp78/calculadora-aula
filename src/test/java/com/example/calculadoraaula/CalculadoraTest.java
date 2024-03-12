@@ -1,13 +1,23 @@
 package com.example.calculadoraaula;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
+    private Calculadora calc;
+
+    @BeforeEach
+    void instanciarObjetos(){
+        System.out.println("Inicializando caso de teste");
+        calc = new Calculadora();
+    }
     
     @Test
     void testSomarDoisInteirosCorretoLimiteSuperior() throws Exception {
-        Calculadora calc = new Calculadora();
+        
+        System.out.println("Inicio teste 1");
         // Arrange
         int numero1 = 100;
         int numero2 = 20;
@@ -22,7 +32,8 @@ public class CalculadoraTest {
 
     @Test
     void testSomarDoisInteirosCorretoLimiteInferior() throws Exception {
-        Calculadora calc = new Calculadora();
+        System.out.println("Inicio teste 2");
+        
         // Arrange
         int numero1 = 0;
         int numero2 = 20;
@@ -35,7 +46,8 @@ public class CalculadoraTest {
         Assertions.assertEquals(resultadoEsperado, resultadoObtido);
     }
 
-/*     @Test
+    /*
+     @Test
     void testFalhaSomarComNumero1AcimaDoLimiteSuperior() {
         Calculadora calc = new Calculadora();
         // Arrange
@@ -59,5 +71,13 @@ public class CalculadoraTest {
         Assertions.assertThrows(Exception.class, () -> {
             calc.somar(numero1, numero2);
         });
-    } */
+    } 
+    */
+
+    @AfterEach
+    void finalizarCadaMetodoTeste(){
+        System.out.println("Finalizando caso de teste");
+        calc = null;
+    }
+
 }

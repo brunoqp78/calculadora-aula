@@ -1,6 +1,11 @@
 package com.example.calculadoraaula;
 
 public class Calculadora {
+
+    public Calculadora(){
+        System.out.println("Criou a calculadora");
+    }
+
     public int somar(int num1, int num2) throws Exception {
         if (num1<0 || num1 > 100)
             throw new Exception("Número 1 fora dos limites aceitos (0 a 100)");

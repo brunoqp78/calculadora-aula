@@ -1,17 +1,25 @@
 package com.example.calculadoraaula;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
-    private Calculadora calc;
+    private static Calculadora calc;
+
+    @BeforeAll
+    static void inicializarTeste(){
+        System.out.println("Começou o teste!!!!!!!!");
+        calc = new Calculadora();
+    }
 
     @BeforeEach
     void instanciarObjetos(){
         System.out.println("Inicializando caso de teste");
-        calc = new Calculadora();
+        
     }
     
     @Test
@@ -76,8 +84,12 @@ public class CalculadoraTest {
 
     @AfterEach
     void finalizarCadaMetodoTeste(){
-        System.out.println("Finalizando caso de teste");
-        calc = null;
+        System.out.println("Finalizando caso de teste");        
+    }
+
+    @AfterAll
+    static void finalizarTeste(){
+        System.out.println("Fim do teste!!!!!");
     }
 
 }

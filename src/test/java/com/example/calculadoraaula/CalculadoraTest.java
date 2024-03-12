@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
+    
     @Test
     void testSomarDoisInteirosCorretoLimiteSuperior() throws Exception {
         Calculadora calc = new Calculadora();

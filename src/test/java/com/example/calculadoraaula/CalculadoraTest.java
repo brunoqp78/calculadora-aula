@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
@@ -18,8 +19,7 @@ public class CalculadoraTest {
 
     @BeforeEach
     void instanciarObjetos(){
-        System.out.println("Inicializando caso de teste");
-        
+        System.out.println("Inicializando caso de teste");        
     }
     
     @Test
@@ -81,6 +81,33 @@ public class CalculadoraTest {
         });
     } 
     */
+
+    @Test
+    @DisplayName("Testa a divisão de dois números inteiros corretos, ou seja, divisor diferente de zero.")
+    void testDividirDoisInteirosCorretos() throws Exception{
+        // Arrange
+        int numero1 = 9;
+        int numero2 = 3;
+        int resultadoEsperado = 3;
+
+        // Act
+        int resultadoObtido = calc.dividir(numero1, numero2);
+
+        // Assert
+        Assertions.assertEquals(resultadoEsperado, resultadoObtido);
+    }
+
+    @Test
+    @DisplayName("Testa a divisão de dois números inteiros incorretos, ou seja, divisor a zero.")
+    void testDividirDoisInteirosIncorretosDivisorZero(){
+        // Arrange
+        int numero1 = 9;
+        int numero2 = 0;       
+
+        // Act and Assert
+        Assertions.assertThrows(Exception.class, ()->{calc.dividir(numero1, numero2);}, "A classe calculadora não retornou a exception esperada.");
+        
+    }
 
     @AfterEach
     void finalizarCadaMetodoTeste(){
